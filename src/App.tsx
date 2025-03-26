@@ -8,6 +8,7 @@ import {
   createRootRoute,
 } from '@tanstack/react-router';
 import { ROUTE_ROOT, ROUTE_TIMELINE } from './routes';
+import Timeline from './Timeline';
 
 const rootRoute = createRootRoute({
   component: function () {
@@ -44,6 +45,7 @@ const aboutRoute = createRoute({
   component: function () {
     return (
       <div>
+        <Timeline />
         <Map />
       </div>
     );

@@ -57,3 +57,8 @@ nav a {
     background-color: #333;
   }
 }
+
+.timeline {
+  width: 800px;
+  height: 200px;
+}
