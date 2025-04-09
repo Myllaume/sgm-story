@@ -9,7 +9,7 @@ function Map() {
       return;
     }
 
-    var map = leaflet.map(mapRef.current, {
+    const map = leaflet.map(mapRef.current, {
       zoomControl: false,
       minZoom: 1.4,
     });

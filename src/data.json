@@ -1,0 +1,52 @@
+[
+  {
+    "date": "1939-09-01",
+    "title": "Invasion of Poland",
+    "tag": "Poland"
+  },
+  {
+    "date": "1940-05-10",
+    "title": "German invasion of France and the Low Countries",
+    "tag": "France"
+  },
+  {
+    "date": "1941-06-22",
+    "title": "Operation Barbarossa",
+    "tag": "URSS"
+  },
+  {
+    "date": "1941-12-07",
+    "title": "Attack on Pearl Harbor",
+    "tag": "United States"
+  },
+  {
+    "date": "1942-06-04",
+    "title": "Battle of Midway",
+    "tag": "Pacific Ocean"
+  },
+  {
+    "date": "1944-06-06",
+    "title": "D-Day (Normandy landings)",
+    "tag": "France"
+  },
+  {
+    "date": "1945-01-27",
+    "title": "Liberation of Auschwitz",
+    "tag": "Poland"
+  },
+  {
+    "date": "1945-05-08",
+    "title": "Victory in Europe Day (VE Day)",
+    "tag": "Europe"
+  },
+  {
+    "date": "1945-08-06",
+    "title": "Atomic bombing of Hiroshima",
+    "tag": "Japan"
+  },
+  {
+    "date": "1945-09-02",
+    "title": "Surrender of Japan (End of WWII)",
+    "tag": "Japan"
+  }
+]

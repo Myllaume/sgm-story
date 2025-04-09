@@ -9,6 +9,8 @@ import {
 } from '@tanstack/react-router';
 import { ROUTE_ROOT, ROUTE_TIMELINE } from './routes';
 import Timeline from './Timeline';
+import Selector from './Selector';
+import { OptionsProvider } from './options';
 
 const rootRoute = createRootRoute({
   component: function () {
@@ -46,7 +48,10 @@ const aboutRoute = createRoute({
     return (
       <div>
         <Timeline />
-        <Map />
+        <div className='map-row'>
+          <Map />
+          <Selector />
+        </div>
       </div>
     );
   },
@@ -58,9 +63,9 @@ const router = createRouter({ routeTree });
 
 function App() {
   return (
-    <>
+    <OptionsProvider>
       <RouterProvider router={router} />
-    </>
+    </OptionsProvider>
   );
 }
 

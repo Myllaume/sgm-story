@@ -30,9 +30,14 @@ body {
   min-height: 100vh;
 }
 
+.map-row {
+  display: flex;
+}
+
 .map {
   height: 500px;
   width: 700px;
+  margin-right: 1em;
 }
 
 .main {
@@ -57,4 +62,8 @@ nav a {
 
 .timeline {
   border: 1px solid #333;
+}
+
+label {
+  display: block;
 }
