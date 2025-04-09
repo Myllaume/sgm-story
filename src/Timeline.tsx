@@ -1,24 +1,59 @@
-import { scaleLinear } from 'd3';
+import { scaleLinear, ticks } from 'd3';
+import { useWindowSize } from 'react-use';
 
 export default function Timeline() {
-  const begin = generateTimestampForYear(1908);
-  const end = generateTimestampForYear(1950);
+  const { width } = useWindowSize();
 
-  const x = scaleLinear([begin, end], [0, 800]);
+  const height = 200;
 
-  const d1920 = x(generateTimestampForYear(1920));
-  const d1914 = x(generateTimestampForYear(1914));
-  const d1918 = x(generateTimestampForYear(1918));
-  const d1939 = x(generateTimestampForYear(1939));
-  const d1945 = x(generateTimestampForYear(1945));
-  const d1949 = x(generateTimestampForYear(1949));
-  const d1950 = x(generateTimestampForYear(1950));
+  const begin = 1908;
+  const end = 1950;
+  const step = 10;
+
+  const getX = scaleLinear(
+    [generateTimestampForYear(begin), generateTimestampForYear(end)],
+    [0, width]
+  );
 
   return (
-    <svg className="timeline">
-      {[d1920, d1914, d1918, d1939, d1945, d1949, d1950].map((x) => {
-        return <circle cx={x} cy={20} r={2} fill="red" />;
-      })}
+    <svg className="timeline" width={width} height={height}>
+      <g>
+        {[1920, 1914, 1918, 1939, 1945, 1949, 1950].map((year) => {
+          return (
+            <g
+              key={year}
+              transform={`translate(${getX(generateTimestampForYear(year))}, ${20})`}
+            >
+              <circle cx={0} cy={0} r={4} fill="red" />
+              <text
+                x={0}
+                y={-10}
+                fontSize={10}
+                textAnchor="middle"
+                fill="black"
+              >
+                {year}
+              </text>
+            </g>
+          );
+        })}
+      </g>
+
+      <g>
+        {ticks(begin, end, (end - begin) / step).map((year) => {
+          return (
+            <g
+              key={year}
+              transform={`translate(${getX(generateTimestampForYear(year))}, ${height - 10})`}
+            >
+              <line x1={0} x2={0} y1={0} y2={10} stroke="black" />
+              <text x={0} y={-3} fontSize={10} textAnchor="middle" fill="black">
+                {year}
+              </text>
+            </g>
+          );
+        })}
+      </g>
     </svg>
   );
 }
