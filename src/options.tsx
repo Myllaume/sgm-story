@@ -2,7 +2,7 @@ import { createContext, useContext, useState, ReactNode, FC } from 'react';
 import { useSet } from 'react-use';
 
 type OptionsContextType = {
-  tags: Set<string>;
+  tags: string[];
   toggleTag: (tag: string) => void;
   hasTag: (tag: string) => boolean;
   clearTags: () => void;
@@ -15,7 +15,9 @@ export function OptionsProvider({ children }: { children: ReactNode }) {
     useSet<string>(new Set([]));
 
   return (
-    <OptionsContext.Provider value={{ tags, toggleTag, clearTags, hasTag }}>
+    <OptionsContext.Provider
+      value={{ tags: Array.from(tags), toggleTag, clearTags, hasTag }}
+    >
       {children}
     </OptionsContext.Provider>
   );

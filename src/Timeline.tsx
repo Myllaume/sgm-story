@@ -1,13 +1,23 @@
-import { scaleLinear, ticks } from 'd3';
+import { scaleLinear, ticks, min, max } from 'd3';
 import { useWindowSize } from 'react-use';
+import useSelectedData from './useSelectedData';
+import timelineBeginEnd from './timelineBeginEnd';
 
 export default function Timeline() {
   const { width } = useWindowSize();
 
   const height = 200;
 
-  const begin = 1908;
-  const end = 1950;
+  const selectedData = useSelectedData();
+
+  const selectedYears = selectedData.map(({ timestamp }) =>
+    getYearForTimestamp(timestamp)
+  );
+
+  const { begin, end } = timelineBeginEnd(
+    min(selectedYears),
+    max(selectedYears)
+  );
   const step = 10;
 
   const getX = scaleLinear(
@@ -15,14 +25,38 @@ export default function Timeline() {
     [0, width]
   );
 
+  const fiveYear =
+    getX(generateTimestampForYear(1900)) -
+    getX(generateTimestampForYear(1900 - 5));
+
   return (
     <svg className="timeline" width={width} height={height}>
       <g>
-        {[1920, 1914, 1918, 1939, 1945, 1949, 1950].map((year) => {
+        {ticks(begin, end, (end - begin) / 10).map((year) => {
           return (
             <g
               key={year}
-              transform={`translate(${getX(generateTimestampForYear(year))}, ${20})`}
+              transform={`translate(${getX(generateTimestampForYear(year))}, 0)`}
+            >
+              <rect
+                x={0}
+                y={0}
+                width={fiveYear}
+                height={height}
+                fill="blue"
+                opacity={0.05}
+              />
+            </g>
+          );
+        })}
+      </g>
+
+      <g>
+        {selectedData.map(({ timestamp }) => {
+          return (
+            <g
+              key={timestamp}
+              transform={`translate(${getX(timestamp)}, ${20})`}
             >
               <circle cx={0} cy={0} r={4} fill="red" />
               <text
@@ -32,7 +66,9 @@ export default function Timeline() {
                 textAnchor="middle"
                 fill="black"
               >
-                {year}
+                {new Date(timestamp * 1000).toLocaleDateString('fr-FR', {
+                  year: 'numeric',
+                })}
               </text>
             </g>
           );
@@ -59,6 +95,11 @@ export default function Timeline() {
 }
 
 function generateTimestampForYear(year: number) {
-  const date = new Date(year, 0, 1); // 1er janvier de l'année donnée
-  return date.getTime() / 1000; // Convertir en timestamp UNIX (secondes)
+  const date = new Date(year, 0, 1);
+  return date.getTime() / 1000;
+}
+
+function getYearForTimestamp(timpestamp: number) {
+  const date = new Date(timpestamp * 1000);
+  return Number(date.getFullYear());
 }
