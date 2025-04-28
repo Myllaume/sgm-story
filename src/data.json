@@ -1,52 +1,52 @@
 [
   {
-    "date": "1939-09-01",
     "title": "Invasion of Poland",
-    "tag": "Poland"
+    "tags": ["Poland"],
+    "timestamp": -957312000
   },
   {
-    "date": "1940-05-10",
     "title": "German invasion of France and the Low Countries",
-    "tag": "France"
+    "tags": ["France"],
+    "timestamp": -935539200
   },
   {
-    "date": "1941-06-22",
     "title": "Operation Barbarossa",
-    "tag": "URSS"
+    "tags": ["URSS"],
+    "timestamp": -900288000
   },
   {
-    "date": "1941-12-07",
     "title": "Attack on Pearl Harbor",
-    "tag": "United States"
+    "tags": ["United States"],
+    "timestamp": -885772800
   },
   {
-    "date": "1942-06-04",
     "title": "Battle of Midway",
-    "tag": "Pacific Ocean"
+    "tags": ["Pacific Ocean"],
+    "timestamp": -870307200
   },
   {
-    "date": "1944-06-06",
     "title": "D-Day (Normandy landings)",
-    "tag": "France"
+    "tags": ["France"],
+    "timestamp": -806976000
   },
   {
-    "date": "1945-01-27",
     "title": "Liberation of Auschwitz",
-    "tag": "Poland"
+    "tags": ["Poland"],
+    "timestamp": -786672000
   },
   {
-    "date": "1945-05-08",
     "title": "Victory in Europe Day (VE Day)",
-    "tag": "Europe"
+    "tags": ["Europe"],
+    "timestamp": -777945600
   },
   {
-    "date": "1945-08-06",
     "title": "Atomic bombing of Hiroshima",
-    "tag": "Japan"
+    "tags": ["Japan"],
+    "timestamp": -770169600
   },
   {
-    "date": "1945-09-02",
     "title": "Surrender of Japan (End of WWII)",
-    "tag": "Japan"
+    "tags": ["Japan"],
+    "timestamp": -767836800
   }
 ]

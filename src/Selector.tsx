@@ -1,19 +1,19 @@
 import data from './data.json';
-import { group } from 'd3';
 import { useOptions } from './options';
+import tagGroup from './tagGroup';
 
-const groupTag = group(data, (d) => d.tag);
+const groupTag = tagGroup(data);
 
 export default function Selector() {
   const { hasTag, toggleTag } = useOptions();
 
   return (
-    <div className='list'>
+    <div className="list">
       {[...groupTag.keys()]
         .sort((a, b) => a.localeCompare(b))
         .map((tag) => {
           return (
-            <label>
+            <label key={tag}>
               <input
                 type="checkbox"
                 checked={hasTag(tag)}
