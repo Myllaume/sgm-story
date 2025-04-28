@@ -48,7 +48,7 @@ const aboutRoute = createRoute({
     return (
       <div>
         <Timeline />
-        <div className='map-row'>
+        <div className="map-row">
           <Map />
           <Selector />
         </div>
