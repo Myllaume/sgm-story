@@ -2,51 +2,56 @@
   {
     "title": "Invasion of Poland",
     "tags": ["Poland"],
-    "timestamp": -957312000
+    "timestamps": [-957312000]
   },
   {
     "title": "German invasion of France and the Low Countries",
     "tags": ["France"],
-    "timestamp": -935539200
+    "timestamps": [-935539200]
   },
   {
     "title": "Operation Barbarossa",
     "tags": ["URSS"],
-    "timestamp": -900288000
+    "timestamps": [-900288000]
   },
   {
     "title": "Attack on Pearl Harbor",
     "tags": ["United States"],
-    "timestamp": -885772800
+    "timestamps": [-885772800]
   },
   {
     "title": "Battle of Midway",
     "tags": ["Pacific Ocean"],
-    "timestamp": -870307200
+    "timestamps": [-870307200]
   },
   {
     "title": "D-Day (Normandy landings)",
     "tags": ["France"],
-    "timestamp": -806976000
+    "timestamps": [-806976000]
+  },
+  {
+    "title": "Toto",
+    "tags": ["France"],
+    "timestamps": [-806976000, -935539200]
   },
   {
     "title": "Liberation of Auschwitz",
     "tags": ["Poland"],
-    "timestamp": -786672000
+    "timestamps": [-786672000]
   },
   {
     "title": "Victory in Europe Day (VE Day)",
     "tags": ["Europe"],
-    "timestamp": -777945600
+    "timestamps": [-777945600]
   },
   {
     "title": "Atomic bombing of Hiroshima",
     "tags": ["Japan"],
-    "timestamp": -770169600
+    "timestamps": [-770169600]
   },
   {
     "title": "Surrender of Japan (End of WWII)",
     "tags": ["Japan"],
-    "timestamp": -767836800
+    "timestamps": [-767836800]
   }
 ]

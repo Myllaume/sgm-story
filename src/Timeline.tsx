@@ -2,6 +2,7 @@ import { scaleLinear, ticks, min, max } from 'd3';
 import { useWindowSize } from 'react-use';
 import useSelectedData from './useSelectedData';
 import timelineBeginEnd from './timelineBeginEnd';
+import { tagColors } from './computedData';
 
 export default function Timeline() {
   const { width } = useWindowSize();
@@ -9,9 +10,8 @@ export default function Timeline() {
   const height = 200;
 
   const selectedData = useSelectedData();
-
-  const selectedYears = selectedData.map(({ timestamp }) =>
-    getYearForTimestamp(timestamp)
+  const selectedYears = selectedData.flatMap(({ timestamps }) =>
+    timestamps.map((timestamp) => getYearForTimestamp(timestamp))
   );
 
   const { begin, end } = timelineBeginEnd(
@@ -52,27 +52,67 @@ export default function Timeline() {
       </g>
 
       <g>
-        {selectedData.map(({ timestamp }) => {
-          return (
-            <g
-              key={timestamp}
-              transform={`translate(${getX(timestamp)}, ${20})`}
-            >
-              <circle cx={0} cy={0} r={4} fill="red" />
-              <text
-                x={0}
-                y={-10}
-                fontSize={10}
-                textAnchor="middle"
-                fill="black"
+        {selectedData
+          .filter(({ timestamps }) => timestamps.length === 1)
+          .map(({ timestamps, tags }) => {
+            const timestamp = timestamps[0];
+            const color = tagColors.get(tags[0]);
+
+            return (
+              <g
+                key={timestamp}
+                transform={`translate(${getX(timestamp)}, ${20})`}
               >
-                {new Date(timestamp * 1000).toLocaleDateString('fr-FR', {
-                  year: 'numeric',
-                })}
-              </text>
-            </g>
-          );
-        })}
+                <circle cx={0} cy={0} r={4} fill={color} />
+                <text
+                  x={0}
+                  y={-10}
+                  fontSize={10}
+                  textAnchor="middle"
+                  fill="black"
+                >
+                  {timestampYearText(timestamp * 1000)}
+                </text>
+              </g>
+            );
+          })}
+      </g>
+
+      <g>
+        {selectedData
+          .filter(({ timestamps }) => timestamps.length === 2)
+          .map(({ timestamps, tags }) => {
+            const [begin, end] = timestamps;
+            const width = getX(begin) - getX(end);
+            const color = tagColors.get(tags[0]);
+
+            return (
+              <g
+                key={timestamps.join('-')}
+                transform={`translate(${getX(begin)}, ${20})`}
+              >
+                <rect x={0} y={0} width={width} height={30} fill={color} />
+                <text
+                  x={0}
+                  y={-10}
+                  fontSize={10}
+                  textAnchor="middle"
+                  fill="black"
+                >
+                  {timestampYearText(begin * 1000)}
+                </text>
+                <text
+                  x={width}
+                  y={-10}
+                  fontSize={10}
+                  textAnchor="middle"
+                  fill="black"
+                >
+                  {timestampYearText(end * 1000)}
+                </text>
+              </g>
+            );
+          })}
       </g>
 
       <g>
@@ -102,4 +142,10 @@ function generateTimestampForYear(year: number) {
 function getYearForTimestamp(timpestamp: number) {
   const date = new Date(timpestamp * 1000);
   return Number(date.getFullYear());
+}
+
+function timestampYearText(timestamp: number) {
+  return new Date(timestamp).toLocaleDateString('fr-FR', {
+    year: 'numeric',
+  });
 }

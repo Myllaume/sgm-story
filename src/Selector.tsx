@@ -1,15 +1,12 @@
-import data from './data.json';
+import { tags } from './computedData';
 import { useOptions } from './options';
-import tagGroup from './tagGroup';
-
-const groupTag = tagGroup(data);
 
 export default function Selector() {
   const { hasTag, toggleTag } = useOptions();
 
   return (
     <div className="list">
-      {[...groupTag.keys()]
+      {tags
         .sort((a, b) => a.localeCompare(b))
         .map((tag) => {
           return (

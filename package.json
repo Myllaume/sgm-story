@@ -14,6 +14,7 @@
   "dependencies": {
     "@tanstack/react-router": "^1.114.27",
     "d3": "^7.9.0",
+    "iwanthue": "^2.0.0",
     "leaflet": "^1.9.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
