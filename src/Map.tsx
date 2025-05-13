@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import leaflet from 'leaflet';
+import cn from 'classnames';
 
 function Map() {
   const mapRef = useRef<HTMLDivElement>(null);
@@ -50,7 +51,7 @@ function Map() {
       .addTo(map);
   }, []);
 
-  return <div ref={mapRef} className="map" />;
+  return <div ref={mapRef} className={cn('w-[700px]', 'h-[500px]')} />;
 }
 
 export default Map;

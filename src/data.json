@@ -2,56 +2,67 @@
   {
     "title": "Invasion of Poland",
     "tags": ["Poland"],
-    "timestamps": [-957312000]
+    "timestamps": [-957312000],
+    "description": "The invasion of Poland by Germany on **September 1, 1939**, marked the beginning of World War II."
   },
   {
     "title": "German invasion of France and the Low Countries",
     "tags": ["France"],
-    "timestamps": [-935539200]
+    "timestamps": [-935539200],
+    "description": "On **May 10, 1940**, Germany launched a blitzkrieg against France, Belgium, and the Netherlands."
   },
   {
     "title": "Operation Barbarossa",
     "tags": ["URSS"],
-    "timestamps": [-900288000]
+    "timestamps": [-900288000],
+    "description": "The German invasion of the Soviet Union began on **June 22, 1941**, and was the largest military operation in history."
   },
   {
     "title": "Attack on Pearl Harbor",
     "tags": ["United States"],
-    "timestamps": [-885772800]
+    "timestamps": [-885772800],
+    "description": "On **December 7, 1941**, Japan attacked the US naval base at Pearl Harbor, prompting the US to enter World War II."
   },
   {
     "title": "Battle of Midway",
     "tags": ["Pacific Ocean"],
-    "timestamps": [-870307200]
+    "timestamps": [-870307200],
+    "description": "Fought between **June 4 and June 7, 1942**, this decisive naval battle marked a turning point in the Pacific War."
   },
   {
     "title": "D-Day (Normandy landings)",
     "tags": ["France"],
-    "timestamps": [-806976000]
+    "timestamps": [-806976000],
+    "description": "On **June 6, 1944**, Allied forces landed on the beaches of Normandy, France, beginning the liberation of Western Europe."
   },
   {
     "title": "Toto",
     "tags": ["France"],
-    "timestamps": [-806976000, -935539200]
+    "timestamps": [-806976000, -935539200],
+    "description": "This is a placeholder event with timestamps corresponding to **D-Day** and the **German invasion of France**."
   },
   {
     "title": "Liberation of Auschwitz",
     "tags": ["Poland"],
-    "timestamps": [-786672000]
+    "timestamps": [-786672000],
+    "description": "On **January 27, 1945**, Soviet forces liberated the Auschwitz concentration camp, revealing the horrors of the Holocaust."
   },
   {
     "title": "Victory in Europe Day (VE Day)",
     "tags": ["Europe"],
-    "timestamps": [-777945600]
+    "timestamps": [-777945600],
+    "description": "Celebrated on **May 8, 1945**, this day marks the unconditional surrender of Nazi Germany to the Allies."
   },
   {
     "title": "Atomic bombing of Hiroshima",
     "tags": ["Japan"],
-    "timestamps": [-770169600]
+    "timestamps": [-770169600],
+    "description": "On **August 6, 1945**, the US dropped an atomic bomb on Hiroshima, Japan, leading to immense destruction and loss of life."
   },
   {
     "title": "Surrender of Japan (End of WWII)",
     "tags": ["Japan"],
-    "timestamps": [-767836800]
+    "timestamps": [-767836800],
+    "description": "On **September 2, 1945**, Japan formally surrendered, bringing an end to World War II."
   }
 ]

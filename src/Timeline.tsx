@@ -3,6 +3,7 @@ import { useWindowSize } from 'react-use';
 import useSelectedData from './useSelectedData';
 import timelineBeginEnd from './timelineBeginEnd';
 import { tagColors } from './computedData';
+import cn from 'classnames';
 
 export default function Timeline() {
   const { width } = useWindowSize();
@@ -30,7 +31,11 @@ export default function Timeline() {
     getX(generateTimestampForYear(1900 - 5));
 
   return (
-    <svg className="timeline" width={width} height={height}>
+    <svg
+      className={cn('w-full', 'border-b', 'border-black')}
+      width={width}
+      height={height}
+    >
       <g>
         {ticks(begin, end, (end - begin) / 10).map((year) => {
           return (
